@@ -6,7 +6,7 @@ import (
 )
 
 type TestModel struct {
-	Aaa string `manage:"field0" pg:"pg-field0"`
+	Aaa string `manage:"field0" pg:"pg-field0,pk"`
 	Bbb string `manage:"field1" pg:"pg-field1"`
 	Ccc string `manage:"field2" pg:"pg-field2"`
 	Ddd string `manage:"field3" pg:"pg-field3"`

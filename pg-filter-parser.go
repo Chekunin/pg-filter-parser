@@ -67,8 +67,9 @@ func (f filter) parseCondition(model interface{}, condition Condition) (string, 
 	}
 	fieldName, has := field.Tag.Lookup(f.ToTagName)
 	if !has {
-		panic(fmt.Errorf("Tag `%s` in field %s not found", f.ToTagName, fieldName))
+		panic(fmt.Errorf("Tag `%s` in field %s not found", f.ToTagName, field.Name))
 	}
+	fieldName = strings.Split(fieldName, ",")[0]
 	operator, has := sqlFilterMap[condition.Operator]
 	if !has {
 		panic(fmt.Errorf("Operator `%s` is unknown", condition.Operator))
